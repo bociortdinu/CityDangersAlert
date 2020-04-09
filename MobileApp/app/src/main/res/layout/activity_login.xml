@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".Login">
+
+
+    <ImageView
+        android:id="@+id/imageLogin"
+        android:layout_width="198dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/inima" />
+
+    <EditText
+        android:id="@+id/emailLogin"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="100dp"
+        android:backgroundTint="#660000"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
+
+    <EditText
+        android:id="@+id/parolaLogin"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="#660000"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:text="Parola"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="#751919"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:onClick=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/parolaLogin" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="HealthLy"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        android:fontFamily="casual"
+        android:textColor="#751919"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
+
+
+</android.support.constraint.ConstraintLayout>
