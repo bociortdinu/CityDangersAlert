@@ -68,7 +68,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="#3399ff"
         android:fontFamily="casual"
-        android:text="Activitatile mele"
+        android:text="Activitatile"
         android:textColor="#ffffff"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
