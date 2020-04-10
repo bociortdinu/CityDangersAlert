@@ -10,14 +10,14 @@
 
     <ImageView
         android:id="@+id/imageLogin"
-        android:layout_width="198dp"
-        android:layout_height="176dp"
+        android:layout_width="228dp"
+        android:layout_height="196dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/inima" />
+        app:srcCompat="@drawable/inima2" />
 
     <EditText
         android:id="@+id/emailLogin"
@@ -43,7 +43,8 @@
         android:text="Parola"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
+        />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -57,7 +58,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parolaLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/parolaLogin"
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -71,7 +73,8 @@
         android:textColor="#751919"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
+        app:layout_constraintTop_toBottomOf="@+id/imageLogin"
+        />
 
 
 </android.support.constraint.ConstraintLayout>

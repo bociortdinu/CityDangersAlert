@@ -5,97 +5,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
-    tools:context=".Meniu"
-    >
+    tools:context=".Meniu">
 
-    <TextView
-        android:id="@+id/textMeniu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="sans-serif"
-        android:text="MENIU"
-        android:textColor="#3399ff"
-        android:textSize="35dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageInima"
         android:layout_width="255dp"
         android:layout_height="226dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/inima2" />
+
+    <android.support.design.widget.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textMeniu"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/inima" />
+        app:menu="@menu/bottom_navigation"
+        app:itemTextColor="#600"
+        app:itemIconTint="#600"
+        android:background="#f5f5f5f5"
+        />
 
-    <Button
-        android:id="@+id/buttonProfilulMeu"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#3399ff"
-        android:fontFamily="sans-serif"
-        android:textSize="14dp"
-        android:text="Profilul meu"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageInima" />
-
-    <Button
-        android:id="@+id/buttonMonitorizareInTimpReal"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#3399ff"
-        android:fontFamily="sans-serif"
-        android:text="Monitorizare in timp real"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonProfilulMeu" />
-
-    <Button
-        android:id="@+id/buttonActivitatileMele"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#3399ff"
-        android:fontFamily="sans-serif"
-        android:text="Activitatile"
-        android:textColor="#ffffff"
-        android:textSize="14dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonMonitorizareInTimpReal" />
-
-    <Button
-        android:id="@+id/buttonRecomadarileMedicului"
-        android:layout_width="250dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:backgroundTint="#3399ff"
-        android:textSize="14dp"
-        android:fontFamily="sans-serif"
-        android:text="Recomandarile medicului"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonActivitatileMele"
-        app:layout_constraintVertical_bias="0.048" />
 
 </android.support.constraint.ConstraintLayout>
