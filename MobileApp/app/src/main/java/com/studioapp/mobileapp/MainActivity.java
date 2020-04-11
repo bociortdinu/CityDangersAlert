@@ -14,22 +14,33 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable(){
-            @Override
-            public void run(){
-                startLogin();
-            }
-        }, 3000);
+        try {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable(){
+                @Override
+                public void run(){
+                    startLogin();
+                }
+            }, 3000);
+        }
+        finally {
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable(){
+                @Override
+                public void run(){
+                    finish();
+                }
+            }, 3000);
+        }
 
     }
 
 
     public void startLogin()
     {
-        Intent intetn = new Intent(this, Login.class);
-        startActivity(intetn);
+        Intent intent = new Intent(this, Login.class);
+        startActivity(intent);
+
     }
 
 }

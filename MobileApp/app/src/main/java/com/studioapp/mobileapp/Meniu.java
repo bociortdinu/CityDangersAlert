@@ -10,7 +10,7 @@ import android.view.MenuItem;
 
 public class Meniu extends AppCompatActivity {
 
-    BottomNavigationView bottomNav;
+    private BottomNavigationView bottomNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
