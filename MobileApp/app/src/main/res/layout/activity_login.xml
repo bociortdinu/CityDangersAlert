@@ -13,9 +13,9 @@
         android:layout_width="228dp"
         android:layout_height="196dp"
         android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
         app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/inima2" />
 
@@ -26,10 +26,11 @@
         android:layout_marginTop="100dp"
         android:backgroundTint="#660000"
         android:ems="10"
+        android:fontFamily="@font/source_sans_pro"
         android:inputType="textEmailAddress"
         android:text="Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/parolaLogin"
+        app:layout_constraintStart_toStartOf="@+id/parolaLogin"
         app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
 
     <EditText
@@ -39,12 +40,12 @@
         android:layout_marginTop="30dp"
         android:backgroundTint="#660000"
         android:ems="10"
+        android:fontFamily="@font/source_sans_pro"
         android:inputType="textPassword"
         android:text="Parola"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
 
     <Button
         android:id="@+id/buttonLogin"
@@ -52,29 +53,27 @@
         android:layout_height="40dp"
         android:layout_marginTop="50dp"
         android:background="#751919"
+        android:fontFamily="@font/source_sans_pro"
         android:text="Login"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/parolaLogin"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/parolaLogin" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="0dp"
+        android:fontFamily="casual"
         android:text="HealthLy"
+        android:textColor="#751919"
         android:textSize="25dp"
         android:textStyle="bold"
-        android:fontFamily="casual"
-        android:textColor="#751919"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageLogin"
-        />
+        app:layout_constraintEnd_toEndOf="@+id/emailLogin"
+        app:layout_constraintStart_toStartOf="@+id/emailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
 
 
 </android.support.constraint.ConstraintLayout>

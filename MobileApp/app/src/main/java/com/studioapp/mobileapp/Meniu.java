@@ -47,6 +47,7 @@ public class Meniu extends AppCompatActivity {
                             break;
                     }
 
+                    assert selectedFragment != null;
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                             selectedFragment).commit();
                     return true;
