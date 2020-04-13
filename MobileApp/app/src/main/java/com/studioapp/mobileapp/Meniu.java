@@ -1,12 +1,17 @@
 package com.studioapp.mobileapp;
 
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Context;
 import android.os.Bundle;
-import android.util.Log;
+import android.util.AttributeSet;
 import android.view.MenuItem;
+import android.view.View;
 
 public class Meniu extends AppCompatActivity {
 

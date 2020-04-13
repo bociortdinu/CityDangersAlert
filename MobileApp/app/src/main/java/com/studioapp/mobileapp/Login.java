@@ -1,7 +1,7 @@
 package com.studioapp.mobileapp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,13 +15,14 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btnLogin = (Button)findViewById(R.id.buttonLogin);
+        btnLogin = (Button)findViewById(R.id.buttonSalvareProfil);
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openMeniu();
             }
         });
+
     }
 
     private void openMeniu(){

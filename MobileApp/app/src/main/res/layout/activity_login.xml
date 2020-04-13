@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -43,14 +43,14 @@
         android:fontFamily="@font/source_sans_pro"
         android:inputType="textPassword"
         android:text="Parola"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
-        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSalvareProfil"
+        app:layout_constraintStart_toStartOf="@+id/buttonSalvareProfil"
         app:layout_constraintTop_toBottomOf="@+id/emailLogin" />
 
     <Button
-        android:id="@+id/buttonLogin"
+        android:id="@+id/buttonSalvareProfil"
         android:layout_width="200dp"
-        android:layout_height="40dp"
+        android:layout_height="35dp"
         android:layout_marginTop="50dp"
         android:background="#751919"
         android:fontFamily="@font/source_sans_pro"
@@ -76,4 +76,4 @@
         app:layout_constraintTop_toBottomOf="@+id/imageLogin" />
 
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

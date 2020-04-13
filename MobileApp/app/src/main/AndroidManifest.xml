@@ -9,13 +9,9 @@
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Login"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
-
-        <activity android:name=".Meniu"></activity>
-
+        <activity android:name=".EditareProfil"></activity>
+        <activity android:name=".Login" />
+        <activity android:name=".Meniu" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
