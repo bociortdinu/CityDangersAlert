@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     public void progressAnimation() {
-        ProgressBarAnimation amin = new ProgressBarAnimation(this, progressBar, 0f, 100f);
+        ProgressBarAnimation amin = new ProgressBarAnimation(this, progressBar, 0f, 100f, this);
         amin.setDuration(8000);
         progressBar.setAnimation(amin);
     }

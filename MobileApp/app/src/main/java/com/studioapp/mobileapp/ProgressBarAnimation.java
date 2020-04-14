@@ -1,5 +1,6 @@
 package com.studioapp.mobileapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.animation.Animation;
@@ -13,12 +14,14 @@ public class ProgressBarAnimation extends Animation {
     private ProgressBar progressBar;
     private float from;
     private float to;
-    public ProgressBarAnimation(Context context, ProgressBar progressBar, float from, float to)
+    private Activity a;
+    public ProgressBarAnimation(Context context, ProgressBar progressBar, float from, float to,Activity a)
     {
         this.context=context;
         this.progressBar=progressBar;
         this.from=from;
         this.to=to;
+        this.a=a;
     }
 
     @Override
@@ -30,6 +33,7 @@ public class ProgressBarAnimation extends Animation {
         if(value==to)
         {
             context.startActivity(new Intent(context,Login.class));
+            a.finish();
         }
     }
 }
