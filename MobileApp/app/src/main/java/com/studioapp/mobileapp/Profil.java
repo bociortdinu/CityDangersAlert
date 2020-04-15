@@ -1,7 +1,14 @@
 package com.studioapp.mobileapp;
 
+import android.os.StrictMode;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.sql.Connection;
+import java.sql.Driver;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 
 public class Profil{
 
@@ -71,6 +78,44 @@ public class Profil{
         text.setText(locDeMunca);
 
     }
+
+
+//    public Connection conectionclass()
+//    {
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
+//        Connection connection = null;
+//        String ConnectionURL = null;
+//
+//        String USERNAME = "your_mysql_username";
+//        String PASSWORD = "your_mysql_password";
+//        String DRIVER = "com.mysql.jdbc.Driver";
+//        String URL = "jdbc:jtds:mysql://localhost:3306/mobileapp";
+//        try
+//        {
+//            Class.forName("net.sourceforge.jtds.jdbc.Driver");
+//            //your database connection string goes below
+//            ConnectionURL=URL;
+//            connection = DriverManager.getConnection(ConnectionURL,"root","descarcare");
+//        }
+//        catch (SQLException e)
+//        {
+//            Log.e("error here 1 : ", e.getMessage());
+//        }
+//        catch (ClassNotFoundException e)
+//        {
+//            Log.e("error here 2: ", e.getLocalizedMessage());
+//        }
+//        catch (Exception e)
+//        {
+//            Log.e("error here 3: ", e.getLocalizedMessage());
+//        }
+//
+//        return connection;
+//    }
+
+
+
 
     public String getNumeUtilizator()
     {

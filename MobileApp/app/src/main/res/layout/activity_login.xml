@@ -80,24 +80,18 @@
         android:id="@+id/imageView3"
         android:layout_width="24dp"
         android:layout_height="28dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="70dp"
         app:layout_constraintEnd_toStartOf="@+id/emailLogin"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.477"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         app:srcCompat="@drawable/ic_action_name_user" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="47dp"
         app:layout_constraintEnd_toStartOf="@+id/parolaLogin"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:layout_constraintVertical_bias="0.134"
         app:srcCompat="@drawable/ic_action_name" />
 
 

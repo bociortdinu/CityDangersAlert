@@ -22,12 +22,12 @@ public class Login extends AppCompatActivity {
         Email=(EditText)findViewById(R.id.emailLogin);
         Parola=(EditText)findViewById(R.id.parolaLogin);
         btnLogin = (Button)findViewById(R.id.buttonSalvareProfil);
-        /*btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openMeniu();
-            }
-        });*/
+//        btnLogin.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                openMeniu();
+//            }
+//        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
