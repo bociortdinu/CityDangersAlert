@@ -20,6 +20,8 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.sql.SQLException;
+
 import static com.studioapp.mobileapp.R.*;
 
 public class ProfilFragment extends Fragment

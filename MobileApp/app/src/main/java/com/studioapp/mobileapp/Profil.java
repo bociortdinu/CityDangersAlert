@@ -7,12 +7,14 @@ import android.widget.TextView;
 import java.sql.Connection;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 
 public class Profil{
 
-
+    private int ID;
     private String numeUtilizator;
     private String prenumeUtilizator;
     private String CNP;
@@ -28,6 +30,7 @@ public class Profil{
 
     public Profil()
     {
+
         numeUtilizator= "Nume";
         prenumeUtilizator = "Prenume";
         CNP = "0000000000000";
@@ -37,7 +40,6 @@ public class Profil{
         nrTelefon = "0700000000";
         idMedic = "112341244";
         locDeMunca = "Firma la care lucrezi";
-
 
     }
 
@@ -79,40 +81,67 @@ public class Profil{
 
     }
 
+    public void extractData() throws SQLException {
+        Statement sql;
+        sql = (Statement) conectionclass().createStatement();
 
-//    public Connection conectionclass()
-//    {
-//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-//        StrictMode.setThreadPolicy(policy);
-//        Connection connection = null;
-//        String ConnectionURL = null;
-//
-//        String USERNAME = "your_mysql_username";
-//        String PASSWORD = "your_mysql_password";
-//        String DRIVER = "com.mysql.jdbc.Driver";
-//        String URL = "jdbc:jtds:mysql://localhost:3306/mobileapp";
-//        try
-//        {
-//            Class.forName("net.sourceforge.jtds.jdbc.Driver");
-//            //your database connection string goes below
-//            ConnectionURL=URL;
-//            connection = DriverManager.getConnection(ConnectionURL,"root","descarcare");
-//        }
-//        catch (SQLException e)
-//        {
-//            Log.e("error here 1 : ", e.getMessage());
-//        }
-//        catch (ClassNotFoundException e)
-//        {
-//            Log.e("error here 2: ", e.getLocalizedMessage());
-//        }
-//        catch (Exception e)
-//        {
-//            Log.e("error here 3: ", e.getLocalizedMessage());
-//        }
-//
-//        return connection;
-//    }
+        ResultSet rs;
+        rs = sql.executeQuery("select * from userprofile");
+
+        while (rs.next())
+        {
+            ID = rs.getInt("idUserProfile");
+            numeUtilizator = rs.getString("numeUtilizator");
+            prenumeUtilizator=rs.getString("prenumeUtilizator");
+            CNP = rs.getString("CNP");
+            adresa = rs.getString("adresa");
+            dataNasterii = rs.getDate("dataNasterii").toString();
+            adresaEmail = rs.getString("adresaEmail");
+            nrTelefon = rs.getString("nrTelefon");
+            idMedic = rs.getString("idMedic");
+            locDeMunca = rs.getString("locDeMunca");
+        }
+    }
+
+
+    public Connection conectionclass()
+    {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+        Connection connection = null;
+        String ConnectionURL = null;
+
+        String USERNAME = "your_mysql_username";
+        String PASSWORD = "your_mysql_password";
+        String DRIVER = "com.mysql.jdbc.Driver";
+        String URL = "jdbc:jtds:sqlserver://127.0.0.1:3306/mobileapp";
+        try
+        {
+            Log.e("ERROR1","ERROR1");
+            Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
+//            Class.forName("com.mysql.cj.jtds.jdbc.Driver").newInstance();
+            Log.e("ERROR2","ERROR2");
+
+            ConnectionURL=URL;
+            connection = DriverManager.getConnection(ConnectionURL,"root","descarcare");
+            Log.e("ERROR3","ERROR3");
+
+        }
+        catch (SQLException e)
+        {
+            Log.e("error here 1 : ", e.getMessage());
+        }
+        catch (ClassNotFoundException e)
+        {
+            Log.e("error here 2: ", e.getLocalizedMessage());
+        }
+        catch (Exception e)
+        {
+            Log.e("error here 3: ", e.getLocalizedMessage());
+        }
+
+        return connection;
+    }
 
 
 
