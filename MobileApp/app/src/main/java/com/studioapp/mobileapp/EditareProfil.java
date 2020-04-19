@@ -12,11 +12,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class EditareProfil extends AppCompatActivity {
 
-    private Button btnSalvare;
+    private FloatingActionButton btnSalvare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +27,7 @@ public class EditareProfil extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
-        btnSalvare = (Button) findViewById(R.id.buttonSalvareProfil);
+        btnSalvare = findViewById(R.id.butonSalvareProfil);
         btnSalvare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -34,6 +35,7 @@ public class EditareProfil extends AppCompatActivity {
                 finish();
             }
         });
+
     }
 
     @Override

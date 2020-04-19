@@ -20,6 +20,8 @@ import android.widget.Toast;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
 import java.sql.SQLException;
 
 import static com.studioapp.mobileapp.R.*;
@@ -38,6 +40,11 @@ public class ProfilFragment extends Fragment
         Toolbar toolbar = rootView.findViewById(id.toolbar1);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
+//        try {
+//            Profil.getInstance().extractData();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//        }
 
         Profil.getInstance().updateProfil();
 
@@ -62,9 +69,25 @@ public class ProfilFragment extends Fragment
                 Toast.makeText(getContext(),"Editare", Toast.LENGTH_LONG).show();
                 startEditareProfil();
                 break;
+            case R.id.settings_logout:
+                Toast.makeText(getContext(),"Deconectat",Toast.LENGTH_LONG).show();
+                kill_interface();
+                startLogin();
+
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void kill_interface()
+    {
+        getActivity().finish();
+    }
+
+    private void startLogin()
+    {
+        Intent intent = new Intent(getContext(), Login.class);
+        startActivity(intent);
     }
 
     private void startEditareProfil()

@@ -3,6 +3,7 @@ package com.studioapp.mobileapp;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.ProgressBar;
@@ -15,6 +16,7 @@ public class ProgressBarAnimation extends Animation {
     private float from;
     private float to;
     private Activity a;
+    private int contor=0;
     public ProgressBarAnimation(Context context, ProgressBar progressBar, float from, float to,Activity a)
     {
         this.context=context;
@@ -32,8 +34,17 @@ public class ProgressBarAnimation extends Animation {
 
         if(value==to)
         {
-            context.startActivity(new Intent(context,Login.class));
-            a.finish();
+            contor++;
+            if(contor==1) {
+                startLogin();
+                a.finish();
+            }
         }
+    }
+
+    private void startLogin()
+    {
+        Intent intent = new Intent(context, Login.class);
+        context.startActivity(intent);
     }
 }

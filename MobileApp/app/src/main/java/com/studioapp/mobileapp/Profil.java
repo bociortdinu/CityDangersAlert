@@ -114,12 +114,13 @@ public class Profil{
         String USERNAME = "your_mysql_username";
         String PASSWORD = "your_mysql_password";
         String DRIVER = "com.mysql.jdbc.Driver";
-        String URL = "jdbc:jtds:sqlserver://127.0.0.1:3306/mobileapp";
+        String URL = "jdbc:mysql://127.0.0.1:3306/mobileapp";
+
+
         try
         {
             Log.e("ERROR1","ERROR1");
             Class.forName("net.sourceforge.jtds.jdbc.Driver").newInstance();
-//            Class.forName("com.mysql.cj.jtds.jdbc.Driver").newInstance();
             Log.e("ERROR2","ERROR2");
 
             ConnectionURL=URL;

@@ -21,7 +21,7 @@ public class Login extends AppCompatActivity {
 
         Email=(EditText)findViewById(R.id.emailLogin);
         Parola=(EditText)findViewById(R.id.parolaLogin);
-        btnLogin = (Button)findViewById(R.id.buttonSalvareProfil);
+        btnLogin = (Button)findViewById(R.id.buttonLogin);
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -32,7 +32,8 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                validate(Email.getText().toString(), Parola.getText().toString());
+                if(validate(Email.getText().toString(), Parola.getText().toString()))
+                    finish();
             }
         });
 
@@ -44,16 +45,17 @@ public class Login extends AppCompatActivity {
         //Intent intent = new Intent(this , Meniu.class);
         //startActivity(intent);
     }
-    private void validate(String userEmail, String userParola)
+    private boolean validate(String userEmail, String userParola)
     {
         if((userEmail.equals("admin")) && (userParola.equals("admin")))
         {
             Intent intent = new Intent(this, Meniu.class);
             startActivity(intent);
-            finish();
+            return true;
         }
         else{
             Toast.makeText(getApplicationContext(), "Email sau parola incorecta!Mai incercati o data!",Toast.LENGTH_SHORT).show();
+            return false;
         }
     }
 }
