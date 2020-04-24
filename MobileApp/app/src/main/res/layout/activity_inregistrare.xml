@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:fontFamily="casual"
+        android:text="HealthLy"
+        android:textColor="#751919"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/emailLogin"
+        app:layout_constraintStart_toStartOf="@+id/emailLogin"
+        app:layout_constraintTop_toBottomOf="@+id/imageInregistrare" />
+
+    <ImageView
+        android:id="@+id/imageInregistrare"
+        android:layout_width="228dp"
+        android:layout_height="196dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView3"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/inima2" />
+
+    <EditText
+        android:id="@+id/emailLogin"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="#660000"
+        android:ems="10"
+        android:fontFamily="@font/source_sans_pro"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/parolaLogin"
+        app:layout_constraintStart_toStartOf="@+id/parolaLogin"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/parolaLogin"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#660000"
+        android:ems="10"
+        android:fontFamily="@font/source_sans_pro"
+        android:hint="Parola"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/confirma"
+        app:layout_constraintStart_toStartOf="@+id/confirma"
+        app:layout_constraintTop_toBottomOf="@+id/emailLogin"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/confirma"
+        android:layout_width="250dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="#660000"
+        android:ems="10"
+        android:fontFamily="@font/source_sans_pro"
+        android:hint="Confirma parola"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSalveaza"
+        app:layout_constraintStart_toStartOf="@+id/buttonSalveaza"
+        app:layout_constraintTop_toBottomOf="@+id/parolaLogin"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/buttonSalveaza"
+        android:layout_width="200dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="49dp"
+        android:background="#751919"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="Salveaza"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirma" />
+</androidx.constraintlayout.widget.ConstraintLayout>

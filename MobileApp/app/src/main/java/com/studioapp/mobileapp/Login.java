@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Login extends AppCompatActivity {
@@ -13,6 +14,7 @@ public class Login extends AppCompatActivity {
     private Button btnLogin;
     private EditText Email;
     private EditText Parola;
+    private TextView Inregistrare;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +23,8 @@ public class Login extends AppCompatActivity {
 
         Email=(EditText)findViewById(R.id.emailLogin);
         Parola=(EditText)findViewById(R.id.parolaLogin);
-        btnLogin = (Button)findViewById(R.id.buttonLogin);
+        btnLogin = (Button)findViewById(R.id.buttonSalveaza);
+        Inregistrare=(TextView)findViewById(R.id.id_inreg);
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -36,7 +39,13 @@ public class Login extends AppCompatActivity {
                     finish();
             }
         });
-
+        Inregistrare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this,Inregistrare.class);
+                startActivity(intent);
+            }
+        });
 
 
     }
