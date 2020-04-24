@@ -106,5 +106,18 @@
         app:layout_constraintStart_toStartOf="@+id/buttonSalveaza"
         app:layout_constraintTop_toTopOf="@+id/buttonSalveaza" />
 
+    <TextView
+        android:id="@+id/id_uitat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ti-ai uitat parola?"
+        android:textColor="#751919"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/id_inreg"
+        app:layout_constraintStart_toStartOf="@+id/id_inreg"
+        app:layout_constraintTop_toBottomOf="@+id/id_inreg" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
