@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MobileApp</string>
+    <string name="app_name">Lilycord</string>
     <string name="settings_change">Editare</string>
     <string name="back_menu">Back</string>
     <string name="setting_logout">Deconectare</string>

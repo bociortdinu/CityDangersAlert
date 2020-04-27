@@ -55,7 +55,6 @@ public class ProfilFragment extends Fragment
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.toolbar1_menu,menu);
         super.onCreateOptionsMenu(menu, inflater);
-
     }
 
 

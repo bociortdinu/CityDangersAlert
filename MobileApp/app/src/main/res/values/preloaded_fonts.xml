@@ -7,6 +7,7 @@
         <item>@font/roboto</item>
         <item>@font/roboto_thin</item>
         <item>@font/source_sans_pro</item>
+        <item>@font/source_sans_pro_light</item>
         <item>@font/source_sans_pro_semibold</item>
     </array>
 </resources>
