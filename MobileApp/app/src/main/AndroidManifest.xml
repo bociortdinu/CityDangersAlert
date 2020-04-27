@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Inregistrare"></activity>
+        <activity android:name=".Parola_noua"></activity>
+        <activity android:name=".Inregistrare" />
         <activity android:name=".EditareProfil" />
         <activity android:name=".Login" />
         <activity android:name=".Meniu" />

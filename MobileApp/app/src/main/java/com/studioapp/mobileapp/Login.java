@@ -15,6 +15,7 @@ public class Login extends AppCompatActivity {
     private EditText Email;
     private EditText Parola;
     private TextView Inregistrare;
+    private TextView Uita_parola;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class Login extends AppCompatActivity {
         Parola=(EditText)findViewById(R.id.parolaLogin);
         btnLogin = (Button)findViewById(R.id.buttonSalveaza);
         Inregistrare=(TextView)findViewById(R.id.id_inreg);
+        Uita_parola=(TextView)findViewById(R.id.id_uitat);
 //        btnLogin.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -46,7 +48,13 @@ public class Login extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
+        Uita_parola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this,Parola_noua.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
