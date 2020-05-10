@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.SQLException;
+
 public class Login extends AppCompatActivity {
 
     private Button btnLogin;
@@ -58,16 +60,12 @@ public class Login extends AppCompatActivity {
 
     }
 
-    private void openMeniu(){
-        //Intent intent = new Intent(this , Meniu.class);
-        //startActivity(intent);
-    }
+
     private boolean validate(String userEmail, String userParola)
     {
         if((userEmail.equals("admin")) && (userParola.equals("admin")))
         {
-            Intent intent = new Intent(this, Meniu.class);
-            startActivity(intent);
+            startMeniuActivity();
             return true;
         }
         else{
@@ -75,4 +73,18 @@ public class Login extends AppCompatActivity {
             return false;
         }
     }
+
+
+
+    private void startMeniuActivity()
+    {
+        Intent intent = new Intent(this,Meniu.class);
+        startActivity(intent);
+        try {
+            Profil.getInstance().extractProfilData(Email.getText().toString());    // daca emailul cu care te-ai logat se potriveste cu cel din baza de date atunci extrag datele
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -40,12 +40,6 @@ public class ProfilFragment extends Fragment
         Toolbar toolbar = rootView.findViewById(id.toolbar1);
         ((AppCompatActivity)getActivity()).setSupportActionBar(toolbar);
 
-//        try {
-//            Profil.getInstance().extractData();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-
         Profil.getInstance().updateProfil();
 
         return rootView;

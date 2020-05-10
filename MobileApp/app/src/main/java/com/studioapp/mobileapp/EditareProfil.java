@@ -1,41 +1,81 @@
 package com.studioapp.mobileapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.sql.SQLException;
 
 
 public class EditareProfil extends AppCompatActivity {
 
     private FloatingActionButton btnSalvare;
+    private ImageView UPLOADimagineProfil = null;
+    private static final int RESULT_LOAD_IMAGE = 1;
+    private static boolean ok=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_editare_profil);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar1);
+        Toolbar toolbar = findViewById(R.id.toolbar1);
         setSupportActionBar(toolbar);
 
         btnSalvare = findViewById(R.id.butonSalvareProfil);
+        UPLOADimagineProfil = findViewById(R.id.imagineProfil);
+        ok = false;
+
+        UPLOADimagineProfil.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(galleryIntent, RESULT_LOAD_IMAGE);
+            }
+        });
+
         btnSalvare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                salveazaProfil();
+                try {
+                    salveazaProfil();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 finish();
             }
         });
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && data!=null)
+        {
+            Uri selectedImage = data.getData();
+            UPLOADimagineProfil.setImageURI(selectedImage);
+            ok=true;
+        }
     }
 
     @Override
@@ -63,37 +103,52 @@ public class EditareProfil extends AppCompatActivity {
         finish();
     }
 
-    private void salveazaProfil()
-    {
-
+    private void salveazaProfil() throws SQLException {
 
         EditText editText;
+        boolean OK = false;
 
-        editText = (EditText) findViewById(R.id.editNume);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editNume);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setNumeUtilizator(editText.getText().toString());
+            OK=true;
+        }
 
-        editText = (EditText) findViewById(R.id.editPrenume);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editPrenume);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setPrenumeUtilizator(editText.getText().toString());
+            OK=true;
+        }
 
-        editText = (EditText) findViewById(R.id.editAdresa);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editAdresa);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setAdresa(editText.getText().toString());
+            OK=true;
+        }
 
-        editText = (EditText) findViewById(R.id.editEmail);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editEmail);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setAdresaEmail(editText.getText().toString());
+            OK=true;
+        }
 
-        editText = (EditText) findViewById(R.id.editTelefon);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editTelefon);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setNrTelefon(editText.getText().toString());
+            OK=true;
+        }
 
-        editText = (EditText) findViewById(R.id.editLocDeMunca);
-        if (editText.getText().toString()!="")
+        editText = findViewById(R.id.editLocDeMunca);
+        if (!editText.getText().toString().equals("")) {
             Profil.getInstance().setLocDeMunca(editText.getText().toString());
+            OK=true;
+        }
+
+        if(ok)
+            Profil.getInstance().setImagineProfil(((BitmapDrawable)UPLOADimagineProfil.getDrawable()).getBitmap());
 
         Profil.getInstance().updateProfil();
-
+        if(OK || ok)
+            Profil.getInstance().updateProfilDataBase();
     }
 }

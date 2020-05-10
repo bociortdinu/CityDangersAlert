@@ -24,7 +24,7 @@ public class Inregistrare extends AppCompatActivity {
                 kill_app();
             }
         });
-       Back.setOnClickListener(new View.OnClickListener() {
+        Back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 kill_app();
