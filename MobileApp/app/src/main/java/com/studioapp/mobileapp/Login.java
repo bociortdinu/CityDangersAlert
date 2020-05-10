@@ -63,7 +63,7 @@ public class Login extends AppCompatActivity {
 
     private boolean validate(String userEmail, String userParola)
     {
-        if((userEmail.equals("admin")) && (userParola.equals("admin")))
+        if((userEmail.equals("bociortdinu@gmail.com")) && (userParola.equals("admin")))
         {
             startMeniuActivity();
             return true;

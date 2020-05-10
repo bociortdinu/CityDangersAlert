@@ -27,7 +27,7 @@
             android:layout_marginStart="15dp"
             android:fontFamily="@font/source_sans_pro_semibold"
             android:text="Linia 1"
-            android:textSize="25sp"
+            android:textSize="22sp"
             app:layout_constraintStart_toEndOf="@+id/recomandare_imagine"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:layout_marginStart="25dp"
             android:fontFamily="@font/source_sans_pro"
             android:text="Linia 2"
-            android:textSize="20sp"
+            android:textSize="17sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recomandare_imagine" />
 

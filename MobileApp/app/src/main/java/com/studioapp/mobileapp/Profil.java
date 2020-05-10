@@ -246,7 +246,10 @@ public class Profil{
     }
 
 
-
+    public String getID()
+    {
+        return ID;
+    }
 
     public String getNumeUtilizator()
     {
