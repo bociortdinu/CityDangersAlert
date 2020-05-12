@@ -6,12 +6,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.sql.SQLException;
 
 public class Meniu extends AppCompatActivity {
 
@@ -25,6 +28,7 @@ public class Meniu extends AppCompatActivity {
         bottomNav = findViewById(R.id.bottom_navigation);
 
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new ProfilFragment()).commit();

@@ -1,5 +1,6 @@
 package com.studioapp.mobileapp;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +28,7 @@ public class RecomandariItemAdapter extends RecyclerView.Adapter<RecomandariItem
             imageView = itemView.findViewById(R.id.recomandare_imagine);
             mTextView1 = itemView.findViewById(R.id.recomandare_linia1);
             mTextView2 = itemView.findViewById(R.id.recomandare_linia2);
+            Log.e("RecomandariViewHolder","RecomandariViewHolder : Am ajuns aici");
         }
     }
 
@@ -38,8 +40,8 @@ public class RecomandariItemAdapter extends RecyclerView.Adapter<RecomandariItem
     @Override
     public RecomandariViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recomandare_item,parent,false);
-        RecomandariViewHolder recomandariViewHolder = new RecomandariViewHolder(v);
-        return recomandariViewHolder;
+        Log.e("RecomandariViewHolder","onCreateViewHolder : Am ajuns aici");
+        return new RecomandariViewHolder(v);
     }
 
     @Override
@@ -47,12 +49,16 @@ public class RecomandariItemAdapter extends RecyclerView.Adapter<RecomandariItem
         RecomandareItem currentItem = mRecomandariList.get(position);
 
         holder.imageView.setImageResource(currentItem.getmImageResource());
+        Log.e("BindViewHolder","IMG:"+currentItem.getmImageResource());
         holder.mTextView1.setText(currentItem.getRecomandare_linia1());
+        Log.e("BindViewHolder","IMG:"+currentItem.getRecomandare_linia1());
         holder.mTextView2.setText(currentItem.getRecomandare_linia2());
+        Log.e("BindViewHolder","IMG:"+currentItem.getRecomandare_linia2());
     }
 
     @Override
     public int getItemCount() {
+        Log.e("getItemCount","Am ajuns aici");
         return mRecomandariList.size();
     }
 }

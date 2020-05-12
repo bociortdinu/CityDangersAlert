@@ -1,5 +1,7 @@
 package com.studioapp.mobileapp;
 
+import android.util.Log;
+
 public class RecomandareItem {
     private int mImageResource;
     private String recomandare_linia1;
@@ -10,6 +12,7 @@ public class RecomandareItem {
         mImageResource = ImageResource;
         recomandare_linia1=recomandare_ln1;
         recomandare_linia2=recomandare_ln2;
+        Log.e("Constructor","RecomandareItem");
     }
 
     public int getmImageResource() {
