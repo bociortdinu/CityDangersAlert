@@ -80,7 +80,9 @@ public class RecomandariFragment extends Fragment {
         return rootView;
     }
 
-    public void getAndPreviwRecomandation() throws SQLException {
+
+
+    private void getAndPreviwRecomandation() throws SQLException {
         Statement sql;
         sql = Profil.getInstance().conectionclass().createStatement();
 
