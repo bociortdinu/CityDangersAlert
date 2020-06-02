@@ -9,7 +9,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 public class Login extends AppCompatActivity {
 
@@ -39,8 +41,12 @@ public class Login extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(validate(Email.getText().toString(), Parola.getText().toString()))
-                    finish();
+                try {
+                    if(validate(Email.getText().toString(), Parola.getText().toString()))
+                        finish();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         });
         Inregistrare.setOnClickListener(new View.OnClickListener() {
@@ -61,17 +67,30 @@ public class Login extends AppCompatActivity {
     }
 
 
-    private boolean validate(String userEmail, String userParola)
-    {
-        if((userEmail.equals("bociortdinu@gmail.com")) && (userParola.equals("admin")))
+    private boolean validate(String userEmail, String userParola) throws SQLException {
+        Statement sql;
+
+        sql = Profil.getInstance().conectionclass().createStatement();
+
+        ResultSet rs;
+
+        rs = sql.executeQuery("select * from [dbo].[UserLogin]");
+
+        while (rs.next())
         {
-            startMeniuActivity();
-            return true;
+            String email = rs.getString("adresaEmail");
+            String parola = rs.getString("parola");
+
+            if((userEmail.equals(email)) && (userParola.equals(parola)))
+            {
+                startMeniuActivity();
+                return true;
+            }
+
         }
-        else{
-            Toast.makeText(getApplicationContext(), "Email sau parola incorecta!Mai incercati o data!",Toast.LENGTH_SHORT).show();
-            return false;
-        }
+
+        Toast.makeText(getApplicationContext(), "Email sau parola incorecta!Mai incercati o data!",Toast.LENGTH_SHORT).show();
+        return false;
     }
 
 
