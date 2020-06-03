@@ -168,7 +168,7 @@ public class MonitorizareFragment extends Fragment {
         ArrayList list = new ArrayList();
 
         if (pairedDevices.isEmpty()) {
-            Toast.makeText(getActivity().getApplicationContext(), "No Paired Bluetooth Devices Found.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity().getApplicationContext(), "Nu au fost gasite dispozitive pentru imperechere", Toast.LENGTH_LONG).show();
         } else {
             for (BluetoothDevice bt : pairedDevices) {
                 if (bt.getAddress().equals(DEVICE_ADDRESS)) {
