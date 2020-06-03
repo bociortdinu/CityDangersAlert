@@ -1,13 +1,17 @@
 package com.studioapp.mobileapp;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import android.os.Handler;
@@ -68,7 +72,9 @@ public class MonitorizareFragment extends Fragment {
     private StringBuilder recDataString = new StringBuilder();
     String ekg;
 
-
+    boolean conectat =false;
+    String mesaj="Nu avem alarma!";
+    String pul;
 
     @SuppressLint("HandlerLeak")
     @Nullable
@@ -106,13 +112,25 @@ public class MonitorizareFragment extends Fragment {
                         temperatura.setText(val[1]);
                         puls.setText(val[2]);
                         EKG.setText(val[3]);
+                        pul=val[2];
+                        if(Double.valueOf(pul)<55.0){
+                            mesaj="Pulsul este prea mic!!";
+                            Toast.makeText(getActivity().getApplicationContext(),mesaj, Toast.LENGTH_LONG).show();
+
+                        }
+                        else
+                        {
+                            if(Double.valueOf(pul)>90.0){
+                                mesaj="Pulsul este prea mare!";
+                                Toast.makeText(getActivity().getApplicationContext(),mesaj, Toast.LENGTH_LONG).show();
+                            }
+                        }
                         recDataString.delete(0, recDataString.length());
                         dataInPrint = " ";
                     }
                 }
             }
         };
-
 
         return rootView;
     }
@@ -122,19 +140,19 @@ public class MonitorizareFragment extends Fragment {
         super.onResume();
         if (BluetoothInitializare()) {
             if (Bluetoothconnectat()) {
-                deviceConnected = true;
                 Toast.makeText(getActivity().getApplicationContext(), "S-a conectat!!", Toast.LENGTH_LONG).show();
                 ConnectedThread thread=new ConnectedThread(inputStream,outputStream);
                 thread.start();
             }
-        }
 
+        }
         new Thread(new Runnable() {
+            Handler handler = new Handler();
             @Override
             public void run() {
 
-                while(true) {
-                    getActivity().runOnUiThread(new Runnable() {
+                while(!Thread.currentThread().isInterrupted()) {
+                    handler.post(new Runnable() {
                         @Override
                         public void run() {
                             addEntry();
@@ -143,11 +161,13 @@ public class MonitorizareFragment extends Fragment {
                     try {
                         Thread.sleep(600);
                     } catch (InterruptedException e) {
-                        e.printStackTrace();
+                        break;
                     }
+                    addEntry();
                 }
             }
         }).start();
+
     }
 
     private void addEntry() {
@@ -183,13 +203,14 @@ public class MonitorizareFragment extends Fragment {
 
     public boolean Bluetoothconnectat() {
         boolean connected = true;
-        try {
-            socket = device.createRfcommSocketToServiceRecord(PORT_UUID);
-            socket.connect();
-        } catch (IOException e) {
-            e.printStackTrace();
-            connected = false;
-        }
+            try {
+                socket = device.createRfcommSocketToServiceRecord(PORT_UUID);
+                socket.connect();
+            } catch (IOException e) {
+                e.printStackTrace();
+                connected = false;
+            }
+
         if (connected) {
             try {
                 outputStream = socket.getOutputStream();
@@ -216,13 +237,10 @@ public class MonitorizareFragment extends Fragment {
         public void run() {
             byte[] buffer = new byte[256];
             int bytes;
-
-            // Keep looping to listen for received messages
             while (true) {
                 try {
-                    bytes = InStream.read(buffer);            //read bytes from input buffer
+                    bytes = InStream.read(buffer);
                     String readMessage = new String(buffer, 0, bytes);
-                    // Send the obtained bytes to the UI Activity via handler
                     bluetoothIn.obtainMessage(handlerState, bytes, -1, readMessage).sendToTarget();
                 } catch (IOException e) {
                     break;
@@ -245,7 +263,7 @@ public class MonitorizareFragment extends Fragment {
         statement.setFloat(1, Float.parseFloat(temperatura.getText().toString()));
         statement.setFloat(2, Float.parseFloat(puls.getText().toString()));
         statement.setFloat(3, Float.parseFloat(EKG.getText().toString()));
-        statement.setString(4, "mesajul de alarma");
+        statement.setString(4, mesaj);
 
         int rowUpdated = statement.executeUpdate();
         if(rowUpdated>0)
