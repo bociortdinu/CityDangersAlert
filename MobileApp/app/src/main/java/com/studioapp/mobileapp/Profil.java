@@ -216,8 +216,8 @@ public class Profil{
 
         String USERNAME = "dinu@mobileapp-testserver";
         String PASSWORD = "Descarcare1";
-        // String URL = "jdbc:jtds:sqlserver://mobileapp-testserver.database.windows.net:1433;DatabaseName=ProfilData;user="+USERNAME+";password="+PASSWORD+";encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
-        String URL = "jdbc:jtds:sqlserver://lilycord.database.windows.net:1433;DatabaseName=lilycord-db;user=lilycord@lilycord;password=London10;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+        String URL = "jdbc:jtds:sqlserver://datc2020.database.windows.net:1433;DatabaseName=DATC;user=admindatc@datc2020;password=Proiect2020;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+       // String URL = "jdbc:jtds:sqlserver://lilycord.database.windows.net:1433;DatabaseName=lilycord-db;user=lilycord@lilycord;password=London10;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
         try
         {

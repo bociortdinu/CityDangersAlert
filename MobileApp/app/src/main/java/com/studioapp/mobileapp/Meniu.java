@@ -3,18 +3,11 @@ package com.studioapp.mobileapp;
 import androidx.annotation.NonNull;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.MenuItem;
-import android.view.View;
-
-import java.sql.SQLException;
 
 public class Meniu extends AppCompatActivity {
 
@@ -46,7 +39,7 @@ public class Meniu extends AppCompatActivity {
                             selectedFragment = new ProfilFragment();
                             break;
                         case R.id.nav_monitorizare:
-                            selectedFragment = new MonitorizareFragment();
+                            selectedFragment = new GoogleMapsFragment();
                             break;
                         case R.id.nav_activitati:
                             selectedFragment = new ActivitatiFragment();
